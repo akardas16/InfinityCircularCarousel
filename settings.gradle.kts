@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "InfinityCircularCarousel"
 include(":app")
- 
+include(":infinitecycleviewpager")
+

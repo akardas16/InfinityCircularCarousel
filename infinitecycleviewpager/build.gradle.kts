@@ -1,19 +1,18 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.akardas16.infinitycircularcarousel"
+    namespace = "com.gigamole.infinitecycleviewpager"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.akardas16.infinitycircularcarousel"
+        //applicationId = "com.gigamole.infinitecycleviewpager"
         minSdk = 21
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        //targetSdk = 34
+        lint.targetSdk = 34
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -25,8 +24,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
             )
         }
     }
@@ -49,6 +48,8 @@ android {
 }
 
 dependencies {
+    //implementation("com.android.support:appcompat-v7:23.0.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -58,7 +59,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(project(":infinitecycleviewpager"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -67,3 +67,4 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+
